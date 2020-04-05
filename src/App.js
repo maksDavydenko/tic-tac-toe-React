@@ -60,7 +60,7 @@ class App extends React.Component {
             }, 1000);
     }
 
-    
+
     clickHandler = event => {
         let data = event.target.getAttribute('data');
         let currentSquares = this.state.squares;
@@ -78,17 +78,15 @@ class App extends React.Component {
 
 
     render() {
+        const cellArr = [0,1,2,3,4,5,6,7,8];
         return (
             <div className='tic-tac-toe'>
-                <div className='ttt-grid' onClick={this.clickHandler} data='0'>{this.state.squares[0]}</div>
-                <div className='ttt-grid' onClick={this.clickHandler} data='1'>{this.state.squares[1]}</div>
-                <div className='ttt-grid' onClick={this.clickHandler} data='2'>{this.state.squares[2]}</div>
-                <div className='ttt-grid' onClick={this.clickHandler} data='3'>{this.state.squares[3]}</div>
-                <div className='ttt-grid' onClick={this.clickHandler} data='4'>{this.state.squares[4]}</div>
-                <div className='ttt-grid' onClick={this.clickHandler} data='5'>{this.state.squares[5]}</div>
-                <div className='ttt-grid' onClick={this.clickHandler} data='6'>{this.state.squares[6]}</div>
-                <div className='ttt-grid' onClick={this.clickHandler} data='7'>{this.state.squares[7]}</div>
-                <div className='ttt-grid' onClick={this.clickHandler} data='8'>{this.state.squares[8]}</div>
+                {cellArr.map(cell => {
+                    return (<div className='ttt-grid' onClick={this.clickHandler}
+                                 data={cell}>{this.state.squares[cell]}</div>)
+                })
+                }
+
             </div>
         );
     }
